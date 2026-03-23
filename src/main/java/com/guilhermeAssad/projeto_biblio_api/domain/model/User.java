@@ -19,7 +19,7 @@ public class User {
     private Long id;
 
     @Column(name = "NAME", length = 255,nullable = false)
-    private String userName;
+    private String name;
 
     @Email
     @Column (name = "EMAIL", nullable = false, unique = true)
@@ -34,8 +34,8 @@ public class User {
     private EUserType userType;
 
     public void updateUser (User user){
-        if (user.getUserName() != null)
-            this.userName = user.getUserName();
+        if (user.getName() != null)
+            this.name = user.getName();
         if (user.getEmail() != null)
             this.email = user.getEmail();
     }

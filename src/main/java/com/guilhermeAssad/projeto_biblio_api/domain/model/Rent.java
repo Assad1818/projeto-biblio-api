@@ -1,6 +1,7 @@
 package com.guilhermeAssad.projeto_biblio_api.domain.model;
 
 
+import com.guilhermeAssad.projeto_biblio_api.utils.ERentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,12 +19,15 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     private User user;
 
     @ManyToOne
     private Book book;
+
+    @Column(name = "STATUS_RENT")
+    @Enumerated(EnumType.STRING)
+    private ERentStatus status;
 
     @Column(name = "DATE_RENT")
     private LocalDateTime dateRent;

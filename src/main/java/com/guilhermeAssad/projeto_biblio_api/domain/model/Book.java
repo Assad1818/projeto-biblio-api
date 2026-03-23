@@ -18,8 +18,8 @@ public class Book implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "BOOK_NAME", length = 255, nullable = false)
-    private String bookName;
+    @Column(name = "NAME", length = 255, nullable = false)
+    private String name;
 
     @Column(name = "AUTHOR", length = 1000, nullable = false)
     private String author;
@@ -27,8 +27,8 @@ public class Book implements Serializable {
     @Column(name = "RELEASE_YEAR", length = 4)
     private String releaseYear;
 
-    @Column(name = "BOOK_GENRE", length = 255, nullable = false)
-    private String bookGenre;
+    @Column(name = "GENRE", length = 255, nullable = false)
+    private String genre;
 
     @Column (name = "AMOUNT", nullable = false)
     private int amount;
@@ -38,12 +38,12 @@ public class Book implements Serializable {
     private EAvailable available;
 
     public void updateBook(Book book){
-        if (book.getBookName() !=null)
-            this.bookName = book.getBookName();
+        if (book.getName() !=null)
+            this.name = book.getName();
         if (book.getAuthor() != null)
             this.author = book.getAuthor();
-        if (book.getBookGenre() != null)
-            this.bookGenre = book.getBookGenre();
+        if (book.getGenre() != null)
+            this.genre = book.getGenre();
         if (book.getReleaseYear() != null)
             this.releaseYear = book.releaseYear;
     }
