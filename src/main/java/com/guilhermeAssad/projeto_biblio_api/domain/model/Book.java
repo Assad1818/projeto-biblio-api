@@ -25,7 +25,7 @@ public class Book implements Serializable {
     private String author;
 
     @Column(name = "RELEASE_YEAR", length = 4)
-    private String releaseYear;
+    private Integer releaseYear;
 
     @Column(name = "GENRE", length = 255, nullable = false)
     private String genre;
