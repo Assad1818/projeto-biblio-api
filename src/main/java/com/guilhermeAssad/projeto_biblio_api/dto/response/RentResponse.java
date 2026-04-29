@@ -8,6 +8,7 @@ public record RentResponse(Long id,
                            String userName,
                            String bookName,
                            ERentStatus status,
-                           LocalDateTime dateRent
+                           LocalDateTime dateRent,
+                           LocalDateTime dateReturn
                            ) {
 }

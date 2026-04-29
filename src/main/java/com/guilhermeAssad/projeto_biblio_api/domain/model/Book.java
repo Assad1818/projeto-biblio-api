@@ -37,7 +37,7 @@ public class Book implements Serializable {
     @Enumerated(EnumType.STRING)
     private EAvailable available;
 
-    public void updateBook(Book book){
+    public void updateFrom(Book book){
         if (book.getName() !=null)
             this.name = book.getName();
         if (book.getAuthor() != null)
@@ -45,7 +45,9 @@ public class Book implements Serializable {
         if (book.getGenre() != null)
             this.genre = book.getGenre();
         if (book.getReleaseYear() != null)
-            this.releaseYear = book.releaseYear;
+            this.releaseYear = book.getReleaseYear();
+        if (book.getAmount() != 0 && book.getAmount() >0)
+            this.amount = book.getAmount();
     }
 
     public Book(){

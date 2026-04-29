@@ -33,7 +33,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private EUserType userType;
 
-    public void updateUser (User user){
+    public void updateFrom (User user){
         if (user.getName() != null)
             this.name = user.getName();
         if (user.getEmail() != null)

@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RentRepository extends JpaRepository<Rent, Long> {
-    List<Rent> findByStatusAndDateReturnIsNull(ERentStatus status, LocalDateTime dateReturn);
-
+    List<Rent> findAllByStatus(ERentStatus status);
+    List<Rent> findByUserId(Long userId);
+    List<Rent> findByBookId(Long bookId);
 }

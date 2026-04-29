@@ -14,7 +14,8 @@ public class RentMapper {
                 rent.getUser().getName(),
                 rent.getBook().getName(),
                 rent.getStatus(),
-                rent.getDateRent());
+                rent.getDateRent()),
+                rent.getDateReturn()
     }
 
     public List<RentResponse> toRentResponseList(List<Rent> rents){
