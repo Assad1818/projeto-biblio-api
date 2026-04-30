@@ -16,12 +16,11 @@ public class BookMapper {
         book.setAuthor(request.getAuthor());
         book.setGenre(request.getGenre());
         book.setReleaseYear(request.getReleaseYear());
-        book.setAmount(request.getAmount());
         return book;
     }
 
     public BookResponse toResponse(Book book){
-        return new BookResponse(book.getId(), book.getName(), book.getAuthor(), book.getGenre(), book.getReleaseYear(), book.getAmount());
+        return new BookResponse(book.getId(), book.getName(), book.getAuthor(), book.getGenre(), book.getReleaseYear());
     }
 
     public List<BookResponse> toBookResponseList(List<Book> books){

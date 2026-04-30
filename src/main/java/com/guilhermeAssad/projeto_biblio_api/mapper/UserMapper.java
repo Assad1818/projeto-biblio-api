@@ -20,7 +20,7 @@ public class UserMapper {
     }
 
     public UserResponse toResponse(User user){
-        return new UserResponse(user.getId(), user.getName(), user.getEmail(), user.getUserType());
+        return new UserResponse(user.getId(), user.getName(), user.getEmail());
     }
 
     public List<UserResponse> toUserResponseList(List<User> users){

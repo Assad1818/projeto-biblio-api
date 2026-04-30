@@ -30,9 +30,6 @@ public class Book implements Serializable {
     @Column(name = "GENRE", length = 255, nullable = false)
     private String genre;
 
-    @Column (name = "AMOUNT", nullable = false)
-    private int amount;
-
     @Column(name = "AVAILABLE")
     @Enumerated(EnumType.STRING)
     private EAvailable available;
@@ -46,8 +43,6 @@ public class Book implements Serializable {
             this.genre = book.getGenre();
         if (book.getReleaseYear() != null)
             this.releaseYear = book.getReleaseYear();
-        if (book.getAmount() != 0 && book.getAmount() >0)
-            this.amount = book.getAmount();
     }
 
     public Book(){

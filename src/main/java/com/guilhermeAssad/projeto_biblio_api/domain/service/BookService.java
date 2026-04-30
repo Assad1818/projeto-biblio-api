@@ -4,6 +4,8 @@ import com.guilhermeAssad.projeto_biblio_api.domain.model.Book;
 import com.guilhermeAssad.projeto_biblio_api.domain.repository.BookRepository;
 import com.guilhermeAssad.projeto_biblio_api.dto.request.BookRequest;
 import com.guilhermeAssad.projeto_biblio_api.dto.response.BookResponse;
+import com.guilhermeAssad.projeto_biblio_api.exception.book.BookNotFoundException;
+import com.guilhermeAssad.projeto_biblio_api.exception.book.DuplicateBookException;
 import com.guilhermeAssad.projeto_biblio_api.mapper.BookMapper;
 import com.guilhermeAssad.projeto_biblio_api.utils.EAvailable;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,7 @@ public class BookService {
 
     private Book findBookOrThrow(Long id){
         return bookRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Livro não encontrado"));
+                .orElseThrow(()-> new BookNotFoundException(id));
     }
 
     private void validateDuplicateBook(BookRequest request){
@@ -28,9 +30,8 @@ public class BookService {
                 request.getName(), request.getAuthor()
         );
         if (exists){
-            throw new RuntimeException("Livro já cadastrado");
+            throw new DuplicateBookException(request.getName(), request.getAuthor());
         }
-
     }
 
     public BookResponse create (BookRequest request){
@@ -62,8 +63,15 @@ public class BookService {
     public List<BookResponse> findByName(String name){
         return bookMapper.toBookResponseList(bookRepository.findByNameContainingIgnoreCase(name));
     }
+
+    public List<BookResponse> findByGenre(String genre){
+        return bookMapper.toBookResponseList(bookRepository.findByGenreContainingIgnoreCase(genre));
+    }
     public List<BookResponse> findAvailable(EAvailable available){
-        return bookMapper.toBookResponseList(bookRepository.findByAvailable(EAvailable.YES));
+        return bookMapper.toBookResponseList(bookRepository.findByAvailable(available));
+    }
+    public List<BookResponse> findByAuthor(String author){
+        return bookMapper.toBookResponseList(bookRepository.findByAuthorIgnoreCase(author));
     }
 
 }

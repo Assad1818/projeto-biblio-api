@@ -1,6 +1,5 @@
 package com.guilhermeAssad.projeto_biblio_api.domain.model;
 
-import com.guilhermeAssad.projeto_biblio_api.utils.EUserType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -29,9 +28,6 @@ public class User {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
-    @Column (name = "USER_TYPE", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private EUserType userType;
 
     public void updateFrom (User user){
         if (user.getName() != null)

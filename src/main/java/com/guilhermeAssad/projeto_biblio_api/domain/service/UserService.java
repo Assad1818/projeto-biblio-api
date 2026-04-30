@@ -4,6 +4,7 @@ package com.guilhermeAssad.projeto_biblio_api.domain.service;
 import com.guilhermeAssad.projeto_biblio_api.domain.model.User;
 import com.guilhermeAssad.projeto_biblio_api.domain.repository.UserRepository;
 import com.guilhermeAssad.projeto_biblio_api.dto.request.UserRequest;
+import com.guilhermeAssad.projeto_biblio_api.dto.response.BookResponse;
 import com.guilhermeAssad.projeto_biblio_api.dto.response.UserResponse;
 import com.guilhermeAssad.projeto_biblio_api.exception.user.DuplicateUserException;
 import com.guilhermeAssad.projeto_biblio_api.exception.user.UserNotFoundException;
@@ -43,6 +44,12 @@ public class UserService {
 
     public List<UserResponse> findAll(){
         return userMapper.toUserResponseList(userRepository.findAll());
+    }
+    public List<UserResponse> findByName(String name){
+        return userMapper.toUserResponseList(userRepository.findByNameContainingIgnoreCase(name));
+    }
+    public List<UserResponse> findByEmail(String email){
+        return userMapper.toUserResponseList(userRepository.findByEmail(email));
     }
 
     public void delete(Long id){

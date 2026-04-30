@@ -28,8 +28,4 @@ public class BookRequest {
 
     @Max(2026)
     private Integer releaseYear;
-
-    @NotNull(message = "A quantidade desse livro é obrigatória!!")
-    private Integer amount;
-
 }

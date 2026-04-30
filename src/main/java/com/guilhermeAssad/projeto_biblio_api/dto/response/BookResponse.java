@@ -4,6 +4,5 @@ public record BookResponse(Long id,
                            String name,
                            String author,
                            String genre,
-                           Integer releaseYear,
-                           Integer amount) {
+                           Integer releaseYear){
 }

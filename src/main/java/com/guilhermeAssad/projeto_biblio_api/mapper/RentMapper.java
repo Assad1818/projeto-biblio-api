@@ -1,6 +1,7 @@
 package com.guilhermeAssad.projeto_biblio_api.mapper;
 
 import com.guilhermeAssad.projeto_biblio_api.domain.model.Rent;
+import com.guilhermeAssad.projeto_biblio_api.dto.request.RentRequest;
 import com.guilhermeAssad.projeto_biblio_api.dto.response.RentResponse;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -14,8 +15,8 @@ public class RentMapper {
                 rent.getUser().getName(),
                 rent.getBook().getName(),
                 rent.getStatus(),
-                rent.getDateRent()),
-                rent.getDateReturn()
+                rent.getDateRent(),
+                rent.getDateReturn());
     }
 
     public List<RentResponse> toRentResponseList(List<Rent> rents){
